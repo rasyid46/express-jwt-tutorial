@@ -36,12 +36,15 @@ db.set(2, new Membership(2, 'Alex', 'Xander', 'alex@yahoo.co.id', '123456'));
 
 const membershipRepository = new MembershipRepository(db);
 
-app.post('/auth', membershipHandler.login(membershipRepository));
+app.post('/auth', membershipHandler.login(membershipRepository)
+
+);
 
 app.get('/me',jwtVerify('secret'), membershipHandler.getMe(membershipRepository));
 
 app.get('/', (req, res, next) => {
-  res.send('Hello Express');
+  console.log('================');
+  res.send('Hello express with nodemon');
 });
 
 // catch 404 and forward to error handler
